@@ -81,11 +81,12 @@ public class GriefPreventionHook implements CurrencyHook {
         return getPlayerData.invoke(dataStore(), player);
     }
 
+    // unused claim blocks, AxTrade checks this when a player offers blocks and when the trade completes
     @Override
     public double getBalance(@NotNull UUID player) {
         if (instance == null) return 0;
         try {
-            return ((Number) getRemainingClaimBlocks.invoke(playerData(player))).intValue();
+            return Math.max(0, ((Number) getRemainingClaimBlocks.invoke(playerData(player))).intValue());
         } catch (Exception ex) {
             ex.printStackTrace();
             return 0;

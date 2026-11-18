@@ -301,6 +301,13 @@ public class TradeGui extends GuiFrame {
                     case NOT_ENOUGH_CURRENCY -> {
                         MESSAGEUTILS.sendLang(player1, "currency-editor.not-enough");
                     }
+                    case BELOW_MINIMUM_AMOUNT -> {
+                        CurrencyHook hook = HookManager.getCurrencyHook(currencyStr);
+                        MESSAGEUTILS.sendLang(player1, "currency-editor.below-minimum", Map.of(
+                                "%amount%", NumberUtils.formatNumber(hook == null ? 0 : TradePlayer.getMinimumAmount(hook)),
+                                "%currency%", hook == null ? currencyStr : Utils.getFormattedCurrency(hook)
+                        ));
+                    }
                     default -> {
                         MESSAGEUTILS.sendLang(player1, "currency-editor.failed");
                     }

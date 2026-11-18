@@ -20,7 +20,6 @@ import com.artillexstudios.axtrade.hooks.currency.RivalCreditsHook;
 import com.artillexstudios.axtrade.hooks.currency.RivalHarvesterHoesHook;
 import com.artillexstudios.axtrade.hooks.currency.RoyaleEconomyHook;
 import com.artillexstudios.axtrade.hooks.currency.SuperMobCoinsHook;
-import com.artillexstudios.axtrade.hooks.currency.TheOnlyMobCoins;
 import com.artillexstudios.axtrade.hooks.currency.TokenManagerHook;
 import com.artillexstudios.axtrade.hooks.currency.UltraEconomyHook;
 import com.artillexstudios.axtrade.hooks.currency.VaultHook;
@@ -109,11 +108,6 @@ public class HookManager {
         if (HOOKS.getBoolean("currencies.SuperMobCoins.register", true) && Bukkit.getPluginManager().getPlugin("SuperMobCoins") != null) {
             currency.add(new SuperMobCoinsHook());
             Bukkit.getConsoleSender().sendMessage(StringUtils.formatToString("&#33FF33[AxTrade] Hooked into SuperMobCoins!"));
-        }
-
-        if (HOOKS.getBoolean("currencies.TheOnly-MobCoins.register", true) && Bukkit.getPluginManager().getPlugin("TheOnly-MobCoins") != null) {
-            currency.add(new TheOnlyMobCoins());
-            Bukkit.getConsoleSender().sendMessage(StringUtils.formatToString("&#33FF33[AxTrade] Hooked into TheOnly-MobCoins!"));
         }
 
         if (HOOKS.getBoolean("currencies.TokenManager.register", true) && Bukkit.getPluginManager().getPlugin("TokenManager") != null) {

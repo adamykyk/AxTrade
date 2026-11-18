@@ -70,9 +70,6 @@ currencies:
   SuperMobCoins:
     register: true
     name: "mobcoin"
-  TheOnly-MobCoins:
-    register: true
-    name: "mobcoins"
   TokenManager:
     register: true
     name: "tokens"
@@ -106,9 +103,10 @@ currencies:
     name: "claim blocks"
     # optional: tax (example: 5 is 5% tax)
     tax: 0
-    # optional: minimum amount of claim blocks needed in a trade, otherwise players can't accept the trade
-    # set to 0 to disable
-    required: 0
+    # the smallest amount of claim blocks a player can enter in the trade gui (0 = no minimum)
+    # example: with 150, players can offer 0 or 150+ claim blocks, but not 1-149
+    # players also always need to have the amount they enter available (unused claim blocks)
+    minimum-amount: 0
 
 # do not change this
-version: 12
+version: 14

@@ -48,6 +48,7 @@ currency-editor:
   success: "&#CCFFEESuccessfully changed value!"
   failed: "&#CCFFEEIncorrect value!"
   not-enough: "&#CCFFEEYou don't have enough of this currency!"
+  below-minimum: "&#CCFFEEYou must trade at least &f%amount% %currency%&#CCFFEE!"
 
 request:
   sent-sender: "&#CCFFEEYou have successfully sent a trade request to &#00FFDD%player%&#CCFFEE!"
@@ -116,4 +117,4 @@ update-notifier: "&#AAFFCCThere is a new version of the plugin available! &#DDDD
 safety: "&#FF0000This feature has been disabled for safety reasons and updating the plugin is required, please contact the server administrators."
 
 # do not change this
-version: 9
+version: 10

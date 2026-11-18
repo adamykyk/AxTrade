@@ -131,9 +131,16 @@ public class TradePlayer {
             return Result.SUCCESS;
         }
         if (amount < 0.1) return Result.TOO_LOW_VALUE;
+        if (amount < getMinimumAmount(currencyHook)) return Result.BELOW_MINIMUM_AMOUNT;
         if (currencyHook.getBalance(player.getUniqueId()) < amount) return Result.NOT_ENOUGH_CURRENCY;
         currencies.put(currencyHook, amount);
         return Result.SUCCESS;
+    }
+
+    // the smallest amount of a currency a player can offer (currencies.yml: minimum-amount), 0 = no minimum
+    public static double getMinimumAmount(CurrencyHook currencyHook) {
+        Object value = currencyHook.getSettings().getOrDefault("minimum-amount", 0);
+        return value instanceof Number number ? number.doubleValue() : 0;
     }
 
     public int getEmptySlots() {
@@ -149,6 +156,7 @@ public class TradePlayer {
         NOT_A_NUMBER,
         CURRENCY_NOT_FOUND,
         TOO_LOW_VALUE,
+        BELOW_MINIMUM_AMOUNT,
         NOT_ENOUGH_CURRENCY,
         SUCCESS
     }
