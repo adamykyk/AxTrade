@@ -100,6 +100,15 @@ currencies:
   RivalCredits:
     register: true
     name: "credits"
+  # trades GriefPrevention claim blocks (only unused claim blocks can be traded away)
+  GriefPrevention:
+    register: true
+    name: "claim blocks"
+    # optional: tax (example: 5 is 5% tax)
+    tax: 0
+    # optional: minimum amount of claim blocks needed in a trade, otherwise players can't accept the trade
+    # set to 0 to disable
+    required: 0
 
 # do not change this
-version: 11
+version: 12

@@ -11,6 +11,7 @@ import com.artillexstudios.axtrade.hooks.currency.CurrencyHook;
 import com.artillexstudios.axtrade.hooks.currency.EcoBitsHook;
 import com.artillexstudios.axtrade.hooks.currency.ExcellentEconomyHook;
 import com.artillexstudios.axtrade.hooks.currency.ExperienceHook;
+import com.artillexstudios.axtrade.hooks.currency.GriefPreventionHook;
 import com.artillexstudios.axtrade.hooks.currency.KingdomsXHook;
 import com.artillexstudios.axtrade.hooks.currency.PlaceholderCurrencyHook;
 import com.artillexstudios.axtrade.hooks.currency.PlayerPointsHook;
@@ -152,6 +153,11 @@ public class HookManager {
         if (HOOKS.getBoolean("currencies.RivalCredits.register", true) && Bukkit.getPluginManager().getPlugin("RivalCredits") != null) {
             currency.add(new RivalCreditsHook());
             Bukkit.getConsoleSender().sendMessage(StringUtils.formatToString("&#33FF33[AxTrade] Hooked into RivalCredits!"));
+        }
+
+        if (HOOKS.getBoolean("currencies.GriefPrevention.register", true) && Bukkit.getPluginManager().getPlugin("GriefPrevention") != null) {
+            currency.add(new GriefPreventionHook());
+            Bukkit.getConsoleSender().sendMessage(StringUtils.formatToString("&#33FF33[AxTrade] Hooked into GriefPrevention!"));
         }
 
         for (String str : HOOKS.getSection("placeholder-currencies").getRoutesAsStrings(false)) {
